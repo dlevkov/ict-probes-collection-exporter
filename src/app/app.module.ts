@@ -17,7 +17,10 @@ import {
   MatButtonModule,
   MatRippleModule,
   MatCardModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSortModule,
+  MatDividerModule,
+  MatPaginatorModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -42,7 +45,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatRippleModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSortModule,
+    MatDividerModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
