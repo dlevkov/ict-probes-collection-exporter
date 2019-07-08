@@ -1,10 +1,27 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition(
+        'expanded <=> collapsed',
+        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      )
+    ])
+  ]
 })
 export class AppComponent {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -18,6 +35,7 @@ export class AppComponent {
   dataSource: MatTableDataSource<any>;
 
   worker = new Worker('./excel-worker.worker', { type: 'module' });
+  expandedElement: any | null;
   constructor() {
     this.handleWorkerMessage();
   }
