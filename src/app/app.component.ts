@@ -26,6 +26,7 @@ import {
 export class AppComponent {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  columnsToDisplay = ['Board P/N', 'Board Name', 'ICT-Test-Adapter P/N'];
 
   title = 'Nothing selected';
   public isLoading = false;
@@ -35,7 +36,7 @@ export class AppComponent {
   dataSource: MatTableDataSource<any>;
 
   worker = new Worker('./excel-worker.worker', { type: 'module' });
-  expandedElement: any | null;
+  expandedElements: any[] | null = [];
   constructor() {
     this.handleWorkerMessage();
   }
@@ -64,9 +65,18 @@ export class AppComponent {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  handleRowClick(evt) {
-    console.log(evt);
-    this.data = evt;
+  elementFound(element) {
+    return this.expandedElements.some(
+      x => x['Board P/N'] === element['Board P/N']
+    );
+  }
+  setElement(element) {
+    if (this.elementFound(element)) {
+      this.expandedElements = this.expandedElements.filter(
+        x => x['Board P/N'] !== element['Board P/N']
+      );
+      return;
+    }
+    this.expandedElements.push(element);
   }
 }
