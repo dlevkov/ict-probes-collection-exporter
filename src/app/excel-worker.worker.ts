@@ -2,8 +2,7 @@
 import * as XLSX from 'xlsx';
 
 addEventListener('message', event => {
-  const res = Upload(event.data);
-  // postMessage(res);
+  Upload(event.data);
 });
 function Upload(file: Blob) {
   const fileReader = new FileReader();

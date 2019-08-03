@@ -1,13 +1,13 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import {
-  trigger,
+  animate,
   state,
   style,
   transition,
-  animate
+  trigger,
 } from '@angular/animations';
-
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { DataProviderService } from './data-provider.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,14 +19,15 @@ import {
       transition(
         'expanded <=> collapsed',
         animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class AppComponent {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   columnsToDisplay = ['Board P/N', 'Board Name', 'ICT-Test-Adapter P/N'];
+  keyColumn = this.columnsToDisplay[0];
 
   title = 'Nothing selected';
   public isLoading = false;
@@ -35,26 +36,27 @@ export class AppComponent {
   public data: any;
   dataSource: MatTableDataSource<any>;
 
-  worker = new Worker('./excel-worker.worker', { type: 'module' });
   expandedElements: any[] | null = [];
-  constructor() {
+  constructor(private service: DataProviderService) {
     this.handleWorkerMessage();
   }
 
   private handleWorkerMessage() {
-    this.worker.onmessage = event => {
-      this.isLoading = false;
-      this.dataAvailable = true;
-      this.dataSource = new MatTableDataSource(event.data);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    };
+    this.service
+      .onMessage$()
+      .subscribe(data => {
+        this.isLoading = false;
+        this.dataAvailable = true;
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      });
   }
 
   incomingFile(event: { target: { files: File[] } }) {
     this.file = event.target.files[0];
     this.title = `Selected ${this.file.name}`;
-    this.worker.postMessage(this.file);
+    this.service.processFile(this.file);
     this.isLoading = true;
     this.dataAvailable = false;
   }
@@ -65,18 +67,22 @@ export class AppComponent {
       this.dataSource.paginator.firstPage();
     }
   }
-  elementFound(element) {
-    return this.expandedElements.some(
-      x => x['Board P/N'] === element['Board P/N']
-    );
-  }
-  setElement(element) {
+  setElement(element: { [x: string]: string }): void {
     if (this.elementFound(element)) {
       this.expandedElements = this.expandedElements.filter(
-        x => x['Board P/N'] !== element['Board P/N']
+        x => x[this.keyColumn] !== element[this.keyColumn]
       );
       return;
     }
+    this.add(element);
+  }
+  elementFound(element: { [x: string]: string }): boolean {
+    return this.expandedElements.some(
+      x => x[this.keyColumn] === element[this.keyColumn]
+    );
+  }
+
+  private add(element: { [x: string]: string }) {
     this.expandedElements.push(element);
   }
 }

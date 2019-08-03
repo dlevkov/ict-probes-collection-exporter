@@ -54,7 +54,7 @@
       <ng-container matColumnDef="expandedDetail">
         <td
           mat-cell
-          *matCellDef="let element"
+          *matCellDef="let element; let count = count"
           [attr.colspan]="columnsToDisplay.length"
         >
           <div
@@ -76,6 +76,7 @@
             <div class="example-element-symbol">
               Shelf Location: {{ element['Shelf Location'] }}
             </div>
+            <div class="example-element-name">{{ count }}</div>
           </div>
         </td>
       </ng-container>
