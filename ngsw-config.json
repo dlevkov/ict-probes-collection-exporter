@@ -15,9 +15,9 @@
           "/favicon.ico",
           "/index.html",
           "/*.css",
-          "/vendor.*.js",
-          "/main.*.js",
-          "/polyfills.*.js",
+          "/vendor*.js",
+          "/main*.js",
+          "/polyfills*.js",
           "/runtime.*.js",
           "/*.js",
           "!/*-sw.js"
@@ -29,7 +29,11 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": ["/assets/**", "/svg/**"],
+        "files": [
+          "/assets/**",
+          "/svg/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ],
         "urls": ["https://fonts.googleapis.com/**"]
       }
     }
@@ -41,8 +45,8 @@
       "urls": ["/data/data.json"],
       "cacheConfig": {
         "strategy": "performance",
-        "maxSize": 10,
-        "maxAge": "1d",
+        "maxSize": 50,
+        "maxAge": "300d",
         "timeout": "5s"
       }
     },
@@ -52,8 +56,8 @@
       "urls": ["/"],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxSize": 15,
-        "maxAge": "1h",
+        "maxSize": 50,
+        "maxAge": "300d",
         "timeout": "3s"
       }
     }

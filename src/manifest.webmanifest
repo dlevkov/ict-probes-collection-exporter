@@ -1,11 +1,14 @@
 {
-  "name": "michael-excel-prj",
+  "name": "Machine learning, AI, neuron networks based application for my Dear Michael",
   "short_name": "michael-excel-prj",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "display": "standalone",
+  "dir": "ltr",
+  "lang": "en",
+  "display": "fullscreen",
   "scope": "/",
-  "start_url": "/",
+  "orientation": "any",
+  "start_url": "/index.html",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
