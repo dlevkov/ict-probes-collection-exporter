@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class DataProviderService {
   worker = new Worker('./excel-worker.worker', { type: 'module' });
@@ -11,6 +11,9 @@ export class DataProviderService {
   constructor() {
     this.worker.onmessage = event => {
       this.subj.next(event.data);
+    };
+    this.worker.onerror = event => {
+      this.subj.error(event);
     };
   }
 
