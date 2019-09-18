@@ -1,0 +1,21 @@
+checks:
+  - name: build-size-watcher
+    options:
+      gzip: true
+      files:
+        - path: './dist/**/main-es5.*.js'
+        - path: './dist/**/runtime-es5.*.js'
+        - path: './dist/**/polyfills-es5.*.js'
+        - path: './dist/**/*.js'
+          maxSize: 1MB
+        - path: './dist/**/*.css'
+        - path: './dist/**/index.html'
+  - name: lighthouse-keeper
+    options:
+      buildPath: ./dist/michael-excel-prj
+  - name: typecov
+    options:
+      # atLeast: 99
+      # name: webapp
+      tsconfigPath: ./tsconfig.app.json
+      ignoreFiles: ['src/test.ts']
