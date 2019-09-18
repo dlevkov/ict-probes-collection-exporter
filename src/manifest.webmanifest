@@ -8,7 +8,7 @@
   "display": "fullscreen",
   "scope": "/",
   "orientation": "any",
-  "start_url": "/index.html",
+  "start_url": "https://dlevkov.github.io/ict-probes-collection-exporter/index.html",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
