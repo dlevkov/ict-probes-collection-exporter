@@ -5,11 +5,11 @@ import * as XLSX from 'xlsx';
   providedIn: 'root'
 })
 export class DataProviderService {
-  private subj = new Subject<any[]>();
+  private subj$ = new Subject<any[]>();
 
 
   public onMessage$(): Observable<any[]> {
-    return this.subj.asObservable();
+    return this.subj$.asObservable();
   }
   public processFile(file: File): void{
     const fileReader = new FileReader();
@@ -25,7 +25,7 @@ export class DataProviderService {
       const firstSheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[firstSheetName];
       const result = XLSX.utils.sheet_to_json(worksheet, { raw: true });
-      this.subj.next(result);
+      this.subj$.next(result);
     };
     fileReader.readAsArrayBuffer(file);
   }
