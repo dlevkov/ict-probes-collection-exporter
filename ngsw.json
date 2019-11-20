@@ -1,0 +1,111 @@
+{
+  "configVersion": 1,
+  "timestamp": 1574239145156,
+  "appData": {
+    "version": "1.1.0",
+    "changelog": "Added better resource caching"
+  },
+  "index": "https://dlevkov.github.io/ict-probes-collection-exporter/index.html",
+  "assetGroups": [
+    {
+      "name": "shell",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://dlevkov.github.io/ict-probes-collection-exporter/0-es2015.ea801f6e07c15f2ed8ff.worker.js",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/favicon.ico",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/index.html",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/main-es2015.1af3a8a2e0bd91ace5fb.js",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/main-es5.1af3a8a2e0bd91ace5fb.js",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/polyfills-es2015.0c367da301dfce13c189.js",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/polyfills-es5.fcc138b5815cd4c4c808.js",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/runtime-es2015.85f895af57b038f1e5b4.js",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/runtime-es5.85f895af57b038f1e5b4.js",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/styles.653bd69ed099b922a22c.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-128x128.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-144x144.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-152x152.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-192x192.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-384x384.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-512x512.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-72x72.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-96x96.png",
+        "https://dlevkov.github.io/ict-probes-collection-exporter/assets/source.json"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*"
+      ]
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "from-static",
+      "patterns": [
+        "\\/data\\/data\\.json"
+      ],
+      "strategy": "performance",
+      "maxSize": 50,
+      "maxAge": 25920000000,
+      "timeoutMs": 5000,
+      "version": 1
+    },
+    {
+      "name": "from-api",
+      "patterns": [
+        "\\/"
+      ],
+      "strategy": "freshness",
+      "maxSize": 50,
+      "maxAge": 25920000000,
+      "timeoutMs": 3000,
+      "version": 2
+    }
+  ],
+  "hashTable": {
+    "https://dlevkov.github.io/ict-probes-collection-exporter/0-es2015.ea801f6e07c15f2ed8ff.worker.js": "521c4dcb9f9f377672bb9e3a01c550fb6d8ca4c8",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/assets/source.json": "59956e364c9610ed030d8dbc28abc394983fc9f3",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/index.html": "1ce875fe65bf3982d0cca72c3979e13d2637d84d",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/main-es2015.1af3a8a2e0bd91ace5fb.js": "e77d07737cac264b1f1a88ac0a4b669ab49fd70c",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/main-es5.1af3a8a2e0bd91ace5fb.js": "6024fbb7127165be9705a43c229d826b8f7cdc82",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/polyfills-es2015.0c367da301dfce13c189.js": "f2ccbe2ca4a43b9d945c6dc4aa498cf13cc6a613",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/polyfills-es5.fcc138b5815cd4c4c808.js": "adbf9753787b0a9e4b67a089d37c147be01e0009",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/runtime-es2015.85f895af57b038f1e5b4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/runtime-es5.85f895af57b038f1e5b4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://dlevkov.github.io/ict-probes-collection-exporter/styles.653bd69ed099b922a22c.css": "225088f9dafe3d1f9c88a5c872ec80f53a803106"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
